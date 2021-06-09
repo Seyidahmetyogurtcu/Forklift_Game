@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 public class SteeringWheelMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -59,9 +56,9 @@ public class SteeringWheelMovement : MonoBehaviour, IDragHandler, IPointerDownHa
         TurnTheSteeringWheel();
     }
 
-    void TurnTheSteeringWheel()
+    void TurnTheSteeringWheel()  
     {
-        if (!wheelBeingHeld && wheelAngle != 0f)
+        if (!wheelBeingHeld && wheelAngle != 0f)  //TurnTheSteeringWheel initial poition
         {
             float deltaAngle = releaseSpeed * Time.deltaTime;
             if (Mathf.Abs(deltaAngle) > Mathf.Abs(wheelAngle))
@@ -77,7 +74,7 @@ public class SteeringWheelMovement : MonoBehaviour, IDragHandler, IPointerDownHa
                 wheelAngle += deltaAngle;
             }
         }
-        wheel.localEulerAngles = new Vector3(0, 0, -wheelAngle);
-        output = wheelAngle / maxSteerAngle;
+        wheel.localEulerAngles = new Vector3(0, 0, -wheelAngle); 
+        output = wheelAngle / maxSteerAngle;  //gives 0-1 range
     }
 }

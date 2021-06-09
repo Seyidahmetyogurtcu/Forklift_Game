@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PendulumMove : MonoBehaviour
-{
+{ 
     Transform trPendulum, trPivotPendulum;
     private float changeRotationTimer;
 

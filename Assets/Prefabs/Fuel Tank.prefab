@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0baa791991e26641a65698482a44544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuelNumber: 0
 --- !u!136 &2518025939824677616
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -151,7 +152,6 @@ GameObject:
   - component: {fileID: 2518025940127328332}
   - component: {fileID: 2518025940127328329}
   - component: {fileID: 2518025940127328334}
-  - component: {fileID: 2518025940127328335}
   m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
@@ -220,20 +220,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2518025940127328335
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2518025940127328333}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2518025940541046424
 GameObject:
   m_ObjectHideFlags: 0

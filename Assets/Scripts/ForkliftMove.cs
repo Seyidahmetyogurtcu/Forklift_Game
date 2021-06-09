@@ -1,14 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+
+
 public class ForkliftMove : MonoBehaviour
 {
-    private bool isStoped;
-    private float input_x, input_y, temp_y;
+    bool isStoped;
+    float input_x, input_y, temp_y;
+    bool inputLiftUp;
+    bool inputLiftDown;
+
     public WheelCollider leftFrontWheelCollider, rightFrontWheelCollider, leftBackWheelCollider, rightBackWheelCollider;
     public Transform leftFrontWheel, rightFrontWheel, leftBackWheel, rightBackWheel;
     public Transform hand;
@@ -18,7 +20,6 @@ public class ForkliftMove : MonoBehaviour
     public Slider fuelTankFill;
     private float realTimeInSeconds;
     private float timer;
-
 
     #region steering wheel
     //private bool wheelBeingHeld = false;
@@ -80,23 +81,15 @@ public class ForkliftMove : MonoBehaviour
     //}
     #endregion
 
-    #region Pedal system
-    public bool isGasSteppedOn;
-    public bool isReverseGasSteppedOn;
-    public bool isBrakeSteppedOn;
-    public bool isLiftUpSteppedOn;
-    public bool isLiftDownSteppedOn;
-    #endregion
-    public bool inputLiftUp;
-    public bool inputLiftDown;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = centerOfMass;
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() //it spends much CPU usage ,fix it
+    { 
         Timer();
         GetUIMovements();
         MoveFortlift();
@@ -104,135 +97,129 @@ public class ForkliftMove : MonoBehaviour
         GameOver();
     }
 
-
     #region EventTrigger 
-    //Gaz Pedal
-    public void GazPedalDown()
-    {
-        isGasSteppedOn = true;
-    }
-    public void GazPedalExit()
-    {
-        isGasSteppedOn = false;
-    }
-    public void GazPedalEnter()
-    {
-        isGasSteppedOn = true;
-    }
-    public void GazPedalUp()
-    {
-        isGasSteppedOn = false;
-    }
+    ////Gaz Pedal
+    //public void GazPedalDown()
+    //{
+    //    isGasSteppedOn = true;
+    //}
+    //public void GazPedalExit()
+    //{
+    //    isGasSteppedOn = false;
+    //}
+    //public void GazPedalEnter()
+    //{
+    //    isGasSteppedOn = true;
+    //}
+    //public void GazPedalUp()
+    //{
+    //    isGasSteppedOn = false;
+    //}
 
-    //Reverse Pedal
-    public void ReversePedalDown()
-    {
-        isReverseGasSteppedOn = true;
-    }
-    public void ReversePedalExit()
-    {
-        isReverseGasSteppedOn = false;
-    }
-    public void ReversePedalEnter()
-    {
-        isReverseGasSteppedOn = true;
-    }
-    public void ReversePedalUp()
-    {
-        isReverseGasSteppedOn = false;
-    }
+    ////Reverse Pedal
+    //public void ReversePedalDown()
+    //{
+    //    isReverseGasSteppedOn = true;
+    //}
+    //public void ReversePedalExit()
+    //{
+    //    isReverseGasSteppedOn = false;
+    //}
+    //public void ReversePedalEnter()
+    //{
+    //    isReverseGasSteppedOn = true;
+    //}
+    //public void ReversePedalUp()
+    //{
+    //    isReverseGasSteppedOn = false;
+    //}
 
-    //Brake
-    public void BrakeDown()
-    {
-        isBrakeSteppedOn = true;
-    }
-    public void BrakeExit()
-    {
-        isBrakeSteppedOn = false;
-    }
-    public void BrakeEnter()
-    {
-        isBrakeSteppedOn = true;
-    }
-    public void BrakeUp()
-    {
-        isBrakeSteppedOn = false;
-    }
+    ////Brake
+    //public void BrakeDown()
+    //{
+    //    isBrakeSteppedOn = true;
+    //}
+    //public void BrakeExit()
+    //{
+    //    isBrakeSteppedOn = false;
+    //}
+    //public void BrakeEnter()
+    //{
+    //    isBrakeSteppedOn = true;
+    //}
+    //public void BrakeUp()
+    //{
+    //    isBrakeSteppedOn = false;
+    //}
 
-    //LiftUp
-    public void LiftUpDown()
-    {
-        isLiftUpSteppedOn = true;
-    }
-    public void LiftUpExit()
-    {
-        isLiftUpSteppedOn = false;
-    }
-    public void LiftUpEnter()
-    {
-        isLiftUpSteppedOn = true;
-    }
-    public void LiftUpUp()
-    {
-        isLiftUpSteppedOn = false;
-    }
+    ////LiftUp
+    //public void LiftUpDown()
+    //{
+    //    isLiftUpSteppedOn = true;
+    //}
+    //public void LiftUpExit()
+    //{
+    //    isLiftUpSteppedOn = false;
+    //}
+    //public void LiftUpEnter()
+    //{
+    //    isLiftUpSteppedOn = true;
+    //}
+    //public void LiftUpUp()
+    //{
+    //    isLiftUpSteppedOn = false;
+    //}
 
-    //LiftDown
-    public void LiftDownDown()
-    {
-        isLiftDownSteppedOn = true;
-    }
-    public void LiftDownExit()
-    {
-        isLiftDownSteppedOn = false;
-    }
-    public void LiftDownEnter()
-    {
-        isLiftDownSteppedOn = true;
-    }
-    public void LiftDownUp()
-    {
-        isLiftDownSteppedOn = false;
-    }
+    ////LiftDown
+    //public void LiftDownDown()
+    //{
+    //    isLiftDownSteppedOn = true;
+    //}
+    //public void LiftDownExit()
+    //{
+    //    isLiftDownSteppedOn = false;
+    //}
+    //public void LiftDownEnter()
+    //{
+    //    isLiftDownSteppedOn = true;
+    //}
+    //public void LiftDownUp()
+    //{
+    //    isLiftDownSteppedOn = false;
+    //}
     #endregion
-
 
     void GetUIMovements()
     {
-        //#if !MOBILE_INPUT
-        //        isStoped = Input.GetKey(KeyCode.Q);
-        //        input_y = Input.GetAxis("Vertical"); 
-        //        input_x = Input.GetAxis("Horizontal");
-        //        inputLiftUp = Input.GetKey(KeyCode.T);  
-        //         inputLiftDown = Input.GetKey(KeyCode.G);
-        //#endif
-
-        input_x= SteeringWheelMovement.singleton.output;
-
-        inputLiftUp = isLiftUpSteppedOn;
-        inputLiftDown = isLiftDownSteppedOn;
-        if (isGasSteppedOn)
-        {
-            input_y = 1.0f;
-        }
-        else if (isReverseGasSteppedOn)
-        {
-            input_y = -1.0f;
-        }
-        else if (!isReverseGasSteppedOn && !isGasSteppedOn)
-        {
-            input_y = 0.0f;
-        }
-        isStoped = isBrakeSteppedOn ? true : false;
-       
-        // input_y = !isReverseGasSteppedOn && !isGasSteppedOn ? 0 : input_y;
-        // input_y = isGasSteppedOn ? 1f : input_y;
-        // input_y = isReverseGasSteppedOn ? -1f : input_y;
-
-
-
+#if (UNITY_EDITOR)
+        isStoped = Input.GetKey(KeyCode.Q);
+        input_y = Input.GetAxis("Vertical");
+        input_x = Input.GetAxis("Horizontal");
+        inputLiftUp = Input.GetKey(KeyCode.T);
+        inputLiftDown = Input.GetKey(KeyCode.G);
+#endif
+#if UNITY_ANDROID
+        isStoped = UIManager.singleton.isStoped;
+        input_y = UIManager.singleton.input_y;
+        input_x = UIManager.singleton.input_x;
+        inputLiftUp = UIManager.singleton.inputLiftUp;
+        inputLiftDown = UIManager.singleton.inputLiftDown;
+#endif
     }
+
+    //    public void Quit()
+    //    {
+    //#if (UNITY_EDITOR || DEVELOPMENT_BUILD)
+    //        Debug.Log(this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
+    //#endif
+    //#if (UNITY_EDITOR)
+    //        UnityEditor.EditorApplication.isPlaying = false;
+    //#elif (UNITY_STANDALONE)
+    //    Application.Quit();
+    //#elif (UNITY_WEBGL)
+    //    Application.OpenURL("about:blank");
+    //#endif
+    //    }
 
     void turnWheelsMeshes()
     {
@@ -254,18 +241,22 @@ public class ForkliftMove : MonoBehaviour
         rightBackWheel.rotation = quat4;
     }
 
+
+    private float maxTime=0.5f;
+    private float minGasPress = 0.1f;
+    private float fuelConsumptionPerMaxTimeSeconds = 0.001f;
     void Timer()
     {
         //Time.timeSinceLevelLoad;
         realTimeInSeconds = Time.realtimeSinceStartup;
         timer += Time.fixedDeltaTime;
-        if (timer >= 0.2)
+        if (timer >= maxTime || Mathf.Abs(input_y) > minGasPress)
         {
-            fuelTankFill.value -= 0.003f;
-            timer = 0f;
+            fuelTankFill.value -= fuelConsumptionPerMaxTimeSeconds;
+            timer -= maxTime;
         }
 
-         Debug.Log((int)timer);
+        Debug.Log((int)timer);
     }
 
     void MoveFortlift()
@@ -297,7 +288,7 @@ public class ForkliftMove : MonoBehaviour
         //lifters vertical move 
         temp_y = hand.localPosition.y;
 
-        if (inputLiftUp && ! inputLiftDown)
+        if (inputLiftUp && !inputLiftDown)
         {
             temp_y += handSpeed * Time.fixedDeltaTime; //"temp_y" meter per second
             temp_y = Mathf.Clamp(temp_y, MinHandPos, maxHandPos);
@@ -315,19 +306,27 @@ public class ForkliftMove : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PickUp"))
         {
-            other.gameObject.SetActive(false);
             fuelTankFill.value += 0.25f;
         }
     }
     void GameOver()
     {
-        if (fuelTankFill.value == 0f || transform.position.y < -5)
+        if (fuelTankFill.value == 0f|| transform.position.y < -5)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//restart
+            StartCoroutine(RestartInThreeSecond());
         }
         if (Mathf.Abs(transform.rotation.z) >= 85 && Mathf.Abs(transform.rotation.x) >= 85)
         {
-            transform.rotation= Quaternion.identity;
+            transform.rotation = Quaternion.identity;
         }
     }
+    IEnumerator RestartInThreeSecond()
+    {
+        yield return new WaitForSeconds(3f);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//restart
+        GameLoader.singleton.Loading(SceneManager.GetActiveScene().buildIndex);//restart asynchronously
+    }
 }
+
+
+

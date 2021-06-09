@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: f5b4c19325ebc134dbf1e2b359639114
+guid: 70ca3e3b61eb6f44583ffabfd51cca48
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3612411043630932833
-    second: Gas Brake Pedal upArrow downArrow GasTank_0
+      213: -4153551775008734174
+    second: Gas Brake Pedal upArrow downArrow GasTank Camera_0
   - first:
-      213: 1680985786917057719
-    second: Gas Brake Pedal upArrow downArrow GasTank_1
+      213: -4440426320694648328
+    second: Gas Brake Pedal upArrow downArrow GasTank Camera_1
   - first:
-      213: 4641788471591081965
-    second: Gas Brake Pedal upArrow downArrow GasTank_2
+      213: 1991591652851902010
+    second: Gas Brake Pedal upArrow downArrow GasTank Camera_2
   - first:
-      213: -6632806051227837311
-    second: Gas Brake Pedal upArrow downArrow GasTank_3
+      213: -8496348891381295695
+    second: Gas Brake Pedal upArrow downArrow GasTank Camera_3
   - first:
-      213: -6813871552533162024
-    second: Gas Brake Pedal upArrow downArrow GasTank_4
+      213: -8300851756475965981
+    second: Gas Brake Pedal upArrow downArrow GasTank Camera_4
   - first:
-      213: 4741822103524374055
-    second: Gas Brake Pedal upArrow downArrow GasTank_5
+      213: 962873015056649612
+    second: Gas Brake Pedal upArrow downArrow GasTank Camera_5
+  - first:
+      213: -6352089898492233834
+    second: Gas Brake Pedal upArrow downArrow GasTank Camera_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -49,12 +52,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -66,7 +69,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 0
+  alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
@@ -79,10 +82,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -91,10 +94,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,10 +106,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,10 +118,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,10 +130,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -141,7 +144,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gas Brake Pedal upArrow downArrow GasTank_0
+      name: Gas Brake Pedal upArrow downArrow GasTank Camera_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163e15e64bcd12230800000000000000
-      internalID: 3612411043630932833
+      spriteID: 2244966caae9b56c0800000000000000
+      internalID: -4153551775008734174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gas Brake Pedal upArrow downArrow GasTank_1
+      name: Gas Brake Pedal upArrow downArrow GasTank Camera_1
       rect:
         serializedVersion: 2
         x: 37
@@ -176,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b4fbadbaaf045710800000000000000
-      internalID: 1680985786917057719
+      spriteID: 8f163b7a9cf6062c0800000000000000
+      internalID: -4440426320694648328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gas Brake Pedal upArrow downArrow GasTank_2
+      name: Gas Brake Pedal upArrow downArrow GasTank Camera_2
       rect:
         serializedVersion: 2
-        x: 78
-        y: 33
-        width: 87
+        x: 76
+        y: 34
+        width: 89
         height: 94
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -197,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de790bb8502fa6040800000000000000
-      internalID: 4641788471591081965
+      spriteID: a36eedd6e0e83ab10800000000000000
+      internalID: 1991591652851902010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gas Brake Pedal upArrow downArrow GasTank_3
+      name: Gas Brake Pedal upArrow downArrow GasTank Camera_3
       rect:
         serializedVersion: 2
         x: 168
@@ -218,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18cd08cd90a83f3a0800000000000000
-      internalID: -6632806051227837311
+      spriteID: 1b51f69e2b7e61a80800000000000000
+      internalID: -8496348891381295695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gas Brake Pedal upArrow downArrow GasTank_4
+      name: Gas Brake Pedal upArrow downArrow GasTank Camera_4
       rect:
         serializedVersion: 2
         x: 1
@@ -239,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d71f16ace34071a0800000000000000
-      internalID: -6813871552533162024
+      spriteID: 3ed921aae437dcc80800000000000000
+      internalID: -8300851756475965981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gas Brake Pedal upArrow downArrow GasTank_5
+      name: Gas Brake Pedal upArrow downArrow GasTank Camera_5
       rect:
         serializedVersion: 2
         x: 77
@@ -260,8 +263,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7267aa474165ec140800000000000000
-      internalID: 4741822103524374055
+      spriteID: c8dc24ad7efcc5d00800000000000000
+      internalID: 962873015056649612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gas Brake Pedal upArrow downArrow GasTank Camera_6
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 2
+        width: 51
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697f50364e7d8d7a0800000000000000
+      internalID: -6352089898492233834
       vertices: []
       indices: 
       edges: []
